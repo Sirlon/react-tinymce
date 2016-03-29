@@ -52,7 +52,7 @@ const TinyMCE = React.createClass({
 
   componentDidMount() {
     const config = clone(this.props.config);
-    this._init(config);
+    this._init(config, this.props.content);
   },
 
   componentWillReceiveProps(nextProps) {
