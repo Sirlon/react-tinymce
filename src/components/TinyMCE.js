@@ -63,10 +63,10 @@ const TinyMCE = React.createClass({
       this.id = nextProps.id;
     }
 
-    const editor = tinymce.EditorManager.get(this.id);
-    console.log('cWRP:', editor);
-    console.log('cWRP Content:', editor.getContent());
-    console.log('cWRP Content:', nextProps.content);
+    let editor = tinymce.EditorManager.get(this.id);
+    setTimeout(() => {
+      console.log('cWRP:', editor);
+    }, 10);
     if (editor && !isEqual(editor.getContent(), nextProps.content)) {
       editor.setContent(nextProps.content);
     }
