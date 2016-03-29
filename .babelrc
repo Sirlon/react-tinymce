@@ -1,0 +1,11 @@
+{
+  "presets": ["es2015","stage-0","react"],
+  "plugins": [
+    "add-module-exports",
+    "transform-proto-to-assign"
+  ],
+  "ignore": [
+    "node_modules/**/*.*",
+    "__tests__/**/*.*"
+    ]
+}
