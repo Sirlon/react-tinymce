@@ -66,15 +66,18 @@ const TinyMCE = React.createClass({
 
     const recSetContent = () => {
       let editor = tinymce.EditorManager.get(this.id);
+      if (this.to) {
+        clearTimeout(this.to);
+      }
 
       if (editor) {
-        if (!isEqual(editor.getContent(), nextProps.content)) {
+        if (!isEqual(editor.getContent({format: 'raw'}), nextProps.content)) {
           editor.setContent(nextProps.content);
+          editor.selection.select(editor.getBody(), true);
+          editor.selection.collapse(false);
         }
       } else {
-        setTimeout(() => {
-          recSetContent();
-        }, 10);
+        this.to = setTimeout(recSetContent, 25);
       }
     };
 
